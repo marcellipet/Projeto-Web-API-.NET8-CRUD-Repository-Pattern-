@@ -1,6 +1,15 @@
-﻿namespace WebApi8_Projeto.Data
+﻿using Microsoft.EntityFrameworkCore;
+using WebApi8_Projeto.Models;
+
+namespace WebApi8_Projeto.Data
 {
-    public class AppDbContent
+    public class AppDbContext : DbContext
     {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
+
+        public DbSet<AutorModel> Autores { get; set; }
+        public DbSet<LivroModel> Livros { get; set; }
     }
 }
