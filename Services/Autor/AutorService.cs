@@ -1,6 +1,6 @@
 ﻿namespace WebApi8_Projeto.Services.Autor
 {
-    public class AutorService
+    public class AutorService : IAutorInterface
     {
     }
 }
