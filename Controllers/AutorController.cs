@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApi8_Projeto.Models;
 using WebApi8_Projeto.Services.Autor;
 
 namespace WebApi8_Projeto.Controllers
@@ -16,6 +17,11 @@ namespace WebApi8_Projeto.Controllers
         }
 
 
-        [HttpGet("BuscarAutores")]
+        [HttpGet("ListarAutores")]
+        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> ListarAutores()
+        {
+            var autores = await _autorInterface.ListarAutores();
+            return Ok(autores);
+        }
     }
 }
