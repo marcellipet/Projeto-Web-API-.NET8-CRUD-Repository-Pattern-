@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using WebApi8_Projeto.Dto.Autor;
 using WebApi8_Projeto.Models;
 using WebApi8_Projeto.Services.Autor;
 
@@ -36,6 +36,14 @@ namespace WebApi8_Projeto.Controllers
         {
             var autor = await _autorInterface.BuscarAutorPorIdLivro(idLivro);
             return Ok(autor);
+        }
+
+        [HttpPost("CriarAutor")]
+        public async Task<ActionResult<ResponseModel<AutorModel>>> CriarAutor(AutorCriacaoDto autorCriacaoDto)
+        {
+            var autores = await _autorInterface.CriarAutor(autorCriacaoDto);
+
+            return Ok(autores);
         }
     }
 }
