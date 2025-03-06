@@ -19,7 +19,8 @@ namespace WebApi8_Projeto.Services.Livro
             ResponseModel<LivroModel> resposta = new ResponseModel<LivroModel>();
             try
             {
-                var livro = await _context.Livros.FirstOrDefaultAsync(livroBanco => livroBanco.Id == idLivro);
+                var livro = await _context.Livros.Include(a => a.Autor)
+                    .FirstOrDefaultAsync(livroBanco => livroBanco.Id == idLivro);
 
                 if (livro == null)
                 {
@@ -185,7 +186,7 @@ namespace WebApi8_Projeto.Services.Livro
             ResponseModel<List<LivroModel>> resposta = new ResponseModel<List<LivroModel>>();
             try
             {
-                var livros = await _context.Livros.ToListAsync();
+                var livros = await _context.Livros.Include(a => a.Autor).ToListAsync();
 
                 resposta.Dados = livros;
                 resposta.Mensagem = "Livros listados com sucesso!";
