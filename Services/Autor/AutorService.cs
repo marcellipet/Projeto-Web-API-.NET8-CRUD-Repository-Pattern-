@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApi8_Projeto.Data;
 using WebApi8_Projeto.Dto.Autor;
+using WebApi8_Projeto.Dto.Livro;
 using WebApi8_Projeto.Models;
 
 namespace WebApi8_Projeto.Services.Autor
